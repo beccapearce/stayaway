@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next){
-  res.render('users');
+  res.render('users', { title: 'stayaway' });
 });
 
 router.post('/users', function(req, res, next){
@@ -29,6 +29,10 @@ router.post('/users', function(req, res, next){
 
 router.get('/spaces', function(req, res, next){
   res.render('spaces', {title: 'stayaway'});
+});
+
+router.get('/signup', function(req, res, next){
+  res.render('signup', {title: 'Sign up'});
 });
 
 module.exports = router;

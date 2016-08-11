@@ -22,10 +22,12 @@ User.create = function (req, res) {
 
 User.authenticate = function (req, res) {
   	User.filter({ "email": req.body.email }).run().then(function(people) {
-				if (people[0].password === req.body.password) {
+				if (people[0] && people[0].password === req.body.password) {
           // req.session.object = people[0];
-          res.redirect('/spaces');
-				}
+          res.redirect('/spaces');}
+        else {
+          res.redirect('/signup');
+          }
 		});
 };
 

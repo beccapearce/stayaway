@@ -2,9 +2,10 @@ process.env.NODE_END = 'test';
 var environment = 'test';
 //might need to require something for the database here too.
 var Browser = require('zombie');
-var app = require('../app');
+var app = require('../../app');
 var http = require('http');
 var assert = require('assert');
+
 describe("index page", function() {
   before(function(){
     this.server = http.createServer(app).listen(3000);
@@ -16,5 +17,15 @@ describe("index page", function() {
   it('should include a title', function() {
     assert.ok(this.browser.success);
     assert.equal(this.browser.text('h1'), 'stayaway');
+  });
+  it('Allow the user to sign in', function() {
+    assert.ok(this.browser.success);
+    this.browser
+    .fill('email', 'fred@fred.com')
+    .fill('password', 'secret')
+    .pressButton('Submit');
+    this.browser.wait().then(function(){
+      expect(this.browser.html("body").to.contain("Welcome"));
+    });
   });
 });
