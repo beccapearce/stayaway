@@ -20,18 +20,18 @@ User.create = function (req, res) {
 	});
 };
 
-var hash2 = function(){
-  const saltRounds = 10;
-  const myPlaintextPassword = req.body.password;
-  bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-    var user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: hash
-    });
-    user.saveAll();
-});
-};
+// var hash2 = function(){
+//   const saltRounds = 10;
+//   const myPlaintextPassword = req.body.password;
+//   bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+//     var user = new User({
+//     name: req.body.name,
+//     email: req.body.email,
+//     password: hash
+//     });
+//     user.saveAll();
+// });
+// };
 
 User.authenticate = function (req, res) {
   	User.filter({ "email": req.body.email }).run().then(function(people) {

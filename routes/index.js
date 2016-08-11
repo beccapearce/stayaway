@@ -9,19 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  var salt = bcrypt.genSaltSync(10);
   var user = new User({
   name: req.body.name,
   email: req.body.email,
-  password: hash2
+  password: bcrypt.hashSync(req.body.password, salt)
   });
-  // var hash2 = function(){
-  //   var saltRounds = 10;
-  //   var myPlaintextPassword = req.body.password;
-  //   bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-  //     console.log(hash);
-  //     return hash;
-  // });
-  // };
   user.saveAll();
   res.redirect('/users');
 });
