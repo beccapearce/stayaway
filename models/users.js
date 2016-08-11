@@ -1,7 +1,7 @@
 var thinky = require('thinky')();
 var r = thinky.r;
 var type = thinky.type;
-var session = require('express-session')
+// var session = require('express-session')
 
 // Create a model - the table is automatically created
 var User = thinky.createModel("User", {

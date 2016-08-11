@@ -35,4 +35,12 @@ router.get('/signup', function(req, res, next){
   res.render('signup', {title: 'Sign up'});
 });
 
+router.get('/spaces/new', function(req, res, next){
+  res.render('spaces/new', {title: 'Add New Spaces'});
+});
+
+router.post('/spaces/new', function(req, res, next){
+  res.redirect('spaces/list');
+});
+
 module.exports = router;
