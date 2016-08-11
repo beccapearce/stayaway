@@ -1,4 +1,4 @@
-var thinky = require('../util/thinky');
+var thinky = require('thinky')();
 var r = thinky.r;
 var type = thinky.type;
 
