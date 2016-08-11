@@ -13,7 +13,6 @@ router.post('/', function(req, res, next) {
   email: req.body.email,
   password: req.body.password
   });
-  console.log(user);
   user.saveAll();
   res.redirect('/users');
 });
@@ -24,15 +23,20 @@ router.get('/users', function(req, res, next){
 
 router.post('/users', function(req, res, next){
   User.authenticate(req, res);
-  // redirect message in models/users.js in the authenticate method
 });
 
 router.get('/spaces', function(req, res, next){
   res.render('spaces', {title: 'stayaway'});
+
 });
 
 router.get('/signup', function(req, res, next){
   res.render('signup', {title: 'Sign up'});
+});
+
+router.get('/signout', function(req, res, next){
+  req.session.destroy();
+  res.redirect('/');
 });
 
 module.exports = router;

@@ -4,15 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session')
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var error = require('jade-error');
 
 var app = express();
+
 
 var r = require('rethinkdbdash')();
 var thinky = require('thinky')({db: 'stayaway_test'});
 
+
+app.use(session({resave: true, saveUninitialized: true, secret: 'SECRET', cookie: { maxAge: null }}));
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
 // var usermodels = require('./models/users');
 // var spacesmodels = require('./models/spaces');
 //
@@ -28,6 +36,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', routes);
 app.use('/users', users);
