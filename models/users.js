@@ -1,6 +1,7 @@
 var thinky = require('thinky')();
 var r = thinky.r;
 var type = thinky.type;
+var bcrypt = require('bcrypt');
 
 // Create a model - the table is automatically created
 var User = thinky.createModel("User", {
@@ -22,9 +23,9 @@ User.create = function (req, res) {
 User.authenticate = function (req, res) {
   	User.filter({ "email": req.body.email }).run().then(function(people) {
 				if (people[0] && people[0].password === req.body.password) {
-          // req.session.object = people[0];
-          res.redirect('/spaces');}
-        else {
+          req.session.object = people[0];
+          res.redirect('/spaces/list');
+        } else {
           res.redirect('/signup');
           }
 		});
