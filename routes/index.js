@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 var User = require('../models/users.js');
 
 /* GET home page. */
@@ -11,8 +12,16 @@ router.post('/', function(req, res, next) {
   var user = new User({
   name: req.body.name,
   email: req.body.email,
-  password: req.body.password
+  password: hash2
   });
+  // var hash2 = function(){
+  //   var saltRounds = 10;
+  //   var myPlaintextPassword = req.body.password;
+  //   bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+  //     console.log(hash);
+  //     return hash;
+  // });
+  // };
   user.saveAll();
   res.redirect('/users');
 });

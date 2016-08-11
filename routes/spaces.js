@@ -14,7 +14,8 @@ router.post('/new', function(req, res, next){
   var space = new Space({
   name: req.body.name,
   description: req.body.description,
-  price: req.body.price
+  price: req.body.price,
+  userId: req.session.object.id
   });
   console.log(space);
   space.saveAll();
