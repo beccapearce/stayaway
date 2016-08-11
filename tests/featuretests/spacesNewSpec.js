@@ -24,7 +24,9 @@ describe('New Spaces Page', function() {
     .fill('price', 9)
     .pressButton('Submit');
     this.browser.wait().then(function(){
-      assert.equal(this.browser.html("body").to.contain("Thanks for adding your property you mug!"));
+      assert.equal(this.browser.html("body").to.contain("the shard"));
+      assert.equal(this.browser.html("body").to.contain("massive"));
+      assert.equal(this.browser.html("body").to.contain(9));
     });
   });
 });

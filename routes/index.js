@@ -27,20 +27,13 @@ router.post('/users', function(req, res, next){
   // redirect message in models/users.js in the authenticate method
 });
 
-router.get('/spaces', function(req, res, next){
-  res.render('spaces', {title: 'stayaway'});
-});
-
 router.get('/signup', function(req, res, next){
   res.render('signup', {title: 'Sign up'});
 });
 
-router.get('/spaces/new', function(req, res, next){
-  res.render('spaces/new', {title: 'Add New Spaces'});
+router.get('/list', function(req, res, next){
+  res.render('/spaces/list', {title: 'Spaces'});
 });
 
-router.post('/spaces/new', function(req, res, next){
-  res.redirect('spaces/list');
-});
 
 module.exports = router;
