@@ -1,8 +1,26 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #badbf4;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: black;
+}
+
+p.links {
+  left: 70%;
+  position: relative;
+  color: red;
+}
+
+a.hover {
+  top: 1px;
+  position: relative;
+}
+
+a.active {
+  top: 2px;
+  position: relative;
 }

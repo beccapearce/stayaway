@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Space = require('../models/spaces.js');
+var User = require('../models/users.js')
 
 router.get('/', function(req, res, next){
   res.render('spaces', {title: 'stayaway'});
