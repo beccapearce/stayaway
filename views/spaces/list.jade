@@ -10,3 +10,4 @@ block content
         div(id='space-name')= val.name
         div(id='space-description')= val.description
         div(id='space-price')= '£' + val.price +'.00 per night'
+        a(href='/spaces/view?id=' + val.id) Request this space

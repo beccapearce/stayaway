@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Space = require('../models/spaces.js');
-var User = require('../models/users.js')
 
 router.get('/', function(req, res, next){
   res.render('spaces', {title: 'stayaway'});
@@ -30,6 +29,15 @@ router.get('/list', function(req, res, next){
   }).then(function() {
     res.render('spaces/list', { title: 'Spaces', spaces: allSpaces });
   });
+});
+
+router.get('/view', function(req, res, next) {
+  var spaceChoice;
+  Space.filter({id: req.query.id}).run().then(function(space) {
+    spaceChoice =  space[0];
+  }).then(function() {
+    res.render('spaces/page', { title: 'Spaces', space: spaceChoice, currentUser: req.session.user  });
+  });
 });
 
 module.exports = router;
