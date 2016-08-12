@@ -27,7 +27,7 @@ User.authenticate = function (req, res) {
           req.session.object = people[0];
             res.redirect('/spaces/list');
           } else {
-            res.redirect('/signup');
+            res.redirect('/users/new');
             }
 		});
 };

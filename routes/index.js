@@ -16,15 +16,7 @@ router.post('/', function(req, res, next) {
   password: bcrypt.hashSync(req.body.password, salt)
   });
   user.saveAll();
-  res.redirect('/users');
-});
-
-router.get('/users', function(req, res, next){
-  res.render('users', { title: 'stayaway' });
-});
-
-router.post('/users', function(req, res, next){
-  User.authenticate(req, res);
+  res.redirect('/spaces/list');
 });
 
 router.get('/spaces', function(req, res, next){
@@ -32,18 +24,8 @@ router.get('/spaces', function(req, res, next){
 
 });
 
-router.get('/signup', function(req, res, next){
-  res.render('signup', {title: 'Sign up'});
-});
-
-router.get('/list', function(req, res, next){
-  res.render('/spaces/list', {title: 'Spaces'});
-});
-
-
-router.get('/signout', function(req, res, next){
-  req.session.destroy();
-  res.redirect('/');
-});
+// router.get('/list', function(req, res, next){
+//   res.render('/spaces/list', {title: 'Spaces'});
+// });
 
 module.exports = router;
