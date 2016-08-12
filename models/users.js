@@ -16,7 +16,7 @@ User.create = function (req, res) {
 		name: req.body.name,
 		username: req.body.username,
 		email: req.body.email,
-		password: hash2
+		password: req.body.password
 	});
 };
 
