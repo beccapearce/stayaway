@@ -5,10 +5,9 @@ var bcrypt = require('bcrypt');
 
 // Create a model - the table is automatically created
 var User = thinky.createModel("User", {
-    name: type.string(),
-    username: type.string(),
+    name: type.string().options({enforce_type: "strict"}),
     email: type.string(),
-    password: type.string()
+    password: type.string().options({enforce_type: "strict"})
 });
 
 User.create = function (req, res) {

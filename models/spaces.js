@@ -3,10 +3,12 @@ var r = thinky.r;
 var type = thinky.type;
 
 var Space = thinky.createModel("spaces", {
-  name: String,
-  description: String,
-  price: Number,
-  userId: String
+  name: type.string(),
+  description: type.string(),
+  price: type.number(),
+  availiblefrom: type.date(),
+  availibleto: type.date(),
+  userId: type.string()
 });
 
 Space.create = function(req, res) {
