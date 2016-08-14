@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font-family: 'Muli', sans-serif;
+  background: url('http://i.imgur.com/TPUH4tI.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
@@ -43,6 +47,7 @@ img {
   border-radius: 25px;
   border: 2px solid #0033ff;
   padding:10px;
+  background-color: white;
 }
 
 #signupform {
@@ -53,10 +58,12 @@ img {
   border-radius: 25px;
   border: 2px solid #0033ff;
   padding: 20px;
+  background-color: white;
 }
 
 form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: white;
 }

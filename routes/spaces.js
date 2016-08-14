@@ -15,6 +15,8 @@ router.post('/new', function(req, res, next){
   name: req.body.name,
   description: req.body.description,
   price: req.body.price,
+  availiblefrom: req.body.availiblefrom,
+  availibleto: req.body.availibleto,
   userId: req.session.object.id
   });
   console.log(space);

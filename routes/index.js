@@ -5,7 +5,7 @@ var User = require('../models/users.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'stayaway' });
+  res.render('index', { title: 'stayaway', currentUser: req.session.object });
 });
 
 router.post('/', function(req, res, next) {
