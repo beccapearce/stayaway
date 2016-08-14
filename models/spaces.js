@@ -13,9 +13,9 @@ var Space = thinky.createModel("spaces", {
 
 Space.create = function(req, res) {
   Space.save({
-    name: req.body.name,
+    name: req.body.name.options({enforce_type: "strict"}),
     description: req.body.description,
-    price: req.body.price,
+    price: req.body.price.options({enforce_type: "strict"}),
     userId: req.body.userId
   });
 };

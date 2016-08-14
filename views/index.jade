@@ -3,4 +3,7 @@ extends layout
 block content
   h1= title
 
-  include signUpForm.html
+  if currentUser
+    j Hello, Welcome back #{currentUser.name}
+  else
+    include signUpForm.html

@@ -1,4 +1,13 @@
 extends ../layout
 block content
   h1= title
-  p= space.description
+  p= space.availiblefrom
+  p= space.availibleto
+
+  if currentUser
+    p Want to stayaway at this space? Make a request to the Owner!
+
+    include requestForm.html
+
+  else
+    p Sign up to start making requests

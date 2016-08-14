@@ -21,17 +21,22 @@ User.create = function (req, res) {
 
 
 User.authenticate = function (req, res) {
-  	User.filter({ "email": req.body.email }).run().then(function(people) {
-        if (people[0] && bcrypt.compareSync(req.body.password, people[0].password)){
-          req.session.object = people[0];
+  	User.filter({ "email": req.body.email }).run().then(function(user) {
+        if (user[0] && bcrypt.compareSync(req.body.password, user[0].password)){
+          req.session.object= user[0];
+          req.session.save();
             res.redirect('/spaces/list');
+            return true;
           } else {
             res.redirect('/users/new');
+            return false;
             }
 		});
 };
 module.exports = User;
 
 var Space = require('./spaces');
+var Request = require('./requests');
 
 User.hasMany(Space, 'spaces', 'id', 'userId');
+User.hasMany(Request, 'requests', 'id', 'userId');

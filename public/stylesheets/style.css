@@ -9,7 +9,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #0d00a5;
+  color: blue;
 }
 
 a:hover {
@@ -27,6 +27,8 @@ a:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  opacity: 0.5;
+  background-color: #353333;
 }
 
 #navbar div{

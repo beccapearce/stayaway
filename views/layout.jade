@@ -1,11 +1,18 @@
 doctype html
-html
-  head
-    include layout.html
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+head
+  link(rel='stylesheet', href='../stylesheets/style.css')
+  link(href='https://fonts.googleapis.com/css?family=Muli', rel='stylesheet')
+  title= title
+body
+  #navbar
+    .image
+      a(href='/users')
+        img(src='http://i.imgur.com/ev8Nc1R.png')
+    .links
+      a(href='/users') Log In
+      a(href='/spaces/list') Spaces
+      if currentUser
+      a(href="/users/end") Sign Out
 
   body
     block content
-      if currentUser
-        <a href="/users/end">Sign Out</a>

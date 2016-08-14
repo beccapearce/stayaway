@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/spaces', function(req, res, next){
-  res.render('spaces', {title: 'stayaway'});
+  res.render('spaces', {title: 'stayaway', currentUser: req.session.object});
 
 });
 

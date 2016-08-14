@@ -3,7 +3,8 @@ block content
   h1= title
 
   p
-    a(href='/spaces/new') Click here to add your own property
+    if currentUser
+      a(href='/spaces/new') Click here to add your own property
 
     div(class='spaces')
      each val in spaces
@@ -12,3 +13,5 @@ block content
           div(id='space-name')= val.name
           div(id='space-description')= val.description
           div(id='space-price')= '£' + val.price +'.00 per night'
+          div(id='space-avaliblefrom')= val.availiblefrom
+          div(id='space-avalibleto')= val.availibleto

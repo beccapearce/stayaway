@@ -2,4 +2,8 @@ extends ../layout
 block content
   h1= title
 
-  include newSpacesForm.html
+  if currentUser
+    include newSpacesForm.html
+
+  else
+    p sign up to add your own Space

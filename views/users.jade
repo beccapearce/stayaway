@@ -2,5 +2,8 @@ extends layout
 
 block content
   h1= title
-
-  include signInForm.html
+  if currentUser
+    p You've already signed in
+    p click here to sign Out
+  else
+    include signInForm.html
